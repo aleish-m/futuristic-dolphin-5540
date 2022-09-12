@@ -6,10 +6,6 @@ class Mechanic <ApplicationRecord
     average(:years_experience)
   end
 
-  def ride_names
-    rides.pluck(:name)
-  end
-
   def open_rides
     rides.where(open: true)
   end

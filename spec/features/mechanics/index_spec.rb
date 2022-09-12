@@ -28,8 +28,9 @@ RSpec.describe "Mechanic Index Page" do
         @joe = Mechanic.create!(name: "Joe", years_experience: 10)
 
         visit '/mechanics'
-
-        expect(page).to have_content("Average Years Experience: 9")
+        within('#mechanics') do
+          expect(page).to have_content("Average Years Experience: 9")
+        end
       end
     end
   end

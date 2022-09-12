@@ -14,7 +14,6 @@ Ride.destroy_all
 @hurler = @six_flags.rides.create!(name: 'The Hurler', thrill_rating: 7, open: true)
 @scrambler = @six_flags.rides.create!(name: 'The Scrambler', thrill_rating: 4, open: true)
 @ferris = @six_flags.rides.create!(name: 'Ferris Wheel', thrill_rating: 7, open: false)
-
 @jaws = @universal.rides.create!(name: 'Jaws', thrill_rating: 5, open: true)
 
 @bob = Mechanic.create!(name: "Bob", years_experience: 8)

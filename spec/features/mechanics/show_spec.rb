@@ -47,6 +47,26 @@ RSpec.describe "Mechanic Show Page" do
 
         expect(page).to have_content("Rides being worked on: The Hurler and The Scrambler")
       end
+
+      it 'I see a form to add a ride to their workload' do
+        visit "/mechanics/#{@bob.id}"
+
+        expect(page).to have_content("Add Ride to Workload:")
+        
+        page.has_field? "ride_id"
+      end
+
+      it "I fill in that field with an id of an existing ride and hit submit, I’m taken back to that mechanic's show page" do
+        visit "/mechanics/#{@bob.id}"
+
+        fill_in("ride_id", with: "#{@jaws.id}")
+
+        click_button('Submit')
+
+        expect(current_path).to eq("/mechanics/#{@bob.id}")
+      end
+
+      it ""
     end
   end
 end

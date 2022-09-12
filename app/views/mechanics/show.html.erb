@@ -3,3 +3,12 @@
 <p>Name: <%= @mechanic.name %></p>
 <p>Years of Experience: <%= @mechanic.years_experience %></p>
 <p>Rides being worked on: <%= @mechanic.open_rides.order_by_thrill.ride_names.to_sentence %></p>
+
+<h2>Add Ride to Workload:</h2>
+<%= form_with url: "/mechanics/#{@mechanic.id}", method: :post, local: true do |form| %>
+  <%= form.label :ride_id, "Enter the Id of Ride to add:" %>
+        <p>
+  <%= form.text_area :ride_id, required: true %>
+        </p>
+  <%= form.submit "Submit" %>
+<% end %>
